@@ -57,5 +57,53 @@ public class CircularLinkedListTest {
 		}
 		Assert.assertEquals(iterationNode.key,selfMade.get(i).intValue());
 	}
+	
+	@Test
+	public void popFrontTest1() {
+		CircularLinkedList list1 = new CircularLinkedList();
+		list1.pushBack(10);
+		list1.pushBack(20);
+		list1.pushBack(30);
+		list1.pushBack(40);
+		list1.pushBack(50);
+		List<Integer> selfMade = new ArrayList<Integer>();
+		selfMade.add(20);
+		selfMade.add(30);
+		selfMade.add(40);
+		selfMade.add(50);
+		list1.popFront();
+		Node iterationNode = list1.head;
+		int i = 0;
+		while (iterationNode.next != list1.head) {
+			Assert.assertEquals(iterationNode.key,selfMade.get(i).intValue());
+			iterationNode = iterationNode.next;
+			i++;
+		}
+		Assert.assertEquals(iterationNode.key,selfMade.get(i).intValue());
+	}
+	
+	@Test
+	public void popBackTest1() {
+		CircularLinkedList list1 = new CircularLinkedList();
+		list1.pushBack(10);
+		list1.pushBack(20);
+		list1.pushBack(30);
+		list1.pushBack(40);
+		list1.pushBack(50);
+		List<Integer> selfMade = new ArrayList<Integer>();
+		selfMade.add(10);
+		selfMade.add(20);
+		selfMade.add(30);
+		selfMade.add(40);
+		list1.popBack();
+		Node iterationNode = list1.head;
+		int i = 0;
+		while (iterationNode.next != list1.head) {
+			Assert.assertEquals(iterationNode.key,selfMade.get(i).intValue());
+			iterationNode = iterationNode.next;
+			i++;
+		}
+		Assert.assertEquals(iterationNode.key,selfMade.get(i).intValue());
+	}
 
 }
